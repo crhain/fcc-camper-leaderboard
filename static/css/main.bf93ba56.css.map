@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/styles/App.css"],"names":[],"mappings":"AAAA,YACE,aACA,sBACA,UAAa","file":"static/css/main.bf93ba56.css","sourcesContent":[".app-header{\n  height: 100px;\n  background-color: black;\n  color: white;\n}\n\n\n\n// WEBPACK FOOTER //\n// ./src/components/styles/App.css"],"sourceRoot":""}
