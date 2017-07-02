@@ -7,9 +7,9 @@ export function fetchData(){
     return {
                 type:FETCH_DATA, 
                 payload: [
-                    {name: 'Carl', points30: 10, points: 100},
-                    {name: 'Bob', points30: 5, points: 50},
-                    {name: 'Carol', points30: 25, points: 75}
+                    {username: 'Carl', img: '', recent: 5, alltime: 150},
+                    {username: 'Bob', img: '', recent: 15, alltime: 100},
+                    {username: 'Carol', img: '', recent: 20, alltime: 75}
                 ]
             };  
 }

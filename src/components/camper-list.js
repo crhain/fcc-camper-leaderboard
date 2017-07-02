@@ -10,10 +10,11 @@ class CamperList extends Component{
     renderCamperRows(){
         return this.props.campers.map((camper, index)=>{
             return (
-                <tr key={index}> 
-                    <td>{ camper.name }</td>
-                    <td>{ camper.points30 }</td>
-                    <td>{ camper.points }</td>
+                <tr key={index}>
+                    <td>{index + 1}</td> 
+                    <td><img className="profile-pic" src={camper.img} /> { camper.username }</td>
+                    <td>{ camper.recent }</td>
+                    <td>{ camper.alltime }</td>
                 </tr>
             );
         });
@@ -27,9 +28,10 @@ class CamperList extends Component{
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>Camper</th>
-                            <th>Points in Last 30 Days</th>
-                            <th>Total Points</th>
+                            <th>#</th>
+                            <th>Camper Name <a className="sort-btn">x</a></th>
+                            <th>Points in Past 30 Days <a className="sort-btn">x</a></th>
+                            <th>All Time Points <a className="sort-btn">x</a></th>
                         </tr>
                     </thead>
                     <tbody>
