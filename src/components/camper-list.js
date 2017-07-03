@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchData } from '../actions/index';
+import { fetchData, sortDataByRecentPoints, sortDataByPoints, sortDataByName } from '../actions/index';
 import './styles/camper-list.css';
 
 class CamperList extends Component{
@@ -13,7 +13,7 @@ class CamperList extends Component{
             return (
                 <tr key={index}>
                     <td>{index + 1}</td> 
-                    <td><img className="profile-pic img-circle" src={camper.img} alt="profile picture"/> { camper.username }</td>
+                    <td><img className="profile-pic img-circle" src={camper.img} alt={camper.username}/> { camper.username }</td>
                     <td>{ camper.recent }</td>
                     <td>{ camper.alltime }</td>
                 </tr>
@@ -30,9 +30,9 @@ class CamperList extends Component{
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Camper Name <a className="sort-btn">x</a></th>
-                            <th>Points in Past 30 Days <a className="sort-btn">x</a></th>
-                            <th>All Time Points <a className="sort-btn">x</a></th>
+                            <th>Camper Name <a className="sort-btn" onClick={this.props.sortDataByName}>x</a></th>
+                            <th>Points in Past 30 Days <a className="sort-btn" onClick={this.props.sortDataByRecentPoints}>x</a></th>
+                            <th>All Time Points <a className="sort-btn" onClick={this.props.sortDataByPoints}>x</a></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,7 +51,7 @@ function mapStateToProps({ campers }){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({ fetchData }, dispatch);
+    return bindActionCreators({ fetchData, sortDataByRecentPoints, sortDataByPoints, sortDataByName }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CamperList);

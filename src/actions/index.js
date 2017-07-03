@@ -1,4 +1,4 @@
-import { FETCH_DATA } from './types';
+import { FETCH_DATA, SORT_DATA_BY_RECENT_POINTS, SORT_DATA_BY_POINTS, SORT_DATA_BY_NAME  } from './types';
 import axios from 'axios';
 
 export function fetchData(){ 
@@ -9,4 +9,26 @@ export function fetchData(){
                 type:FETCH_DATA, 
                 payload: data
             };  
+}
+
+export function sortDataByRecentPoints(){
+    return {
+        type: SORT_DATA_BY_RECENT_POINTS,
+        payload: ''
+    }
+}
+
+export function sortDataByPoints(){
+    return {
+        type: SORT_DATA_BY_POINTS,
+        playload: ''
+    }
+}
+
+export function sortDataByName(){
+    return {
+        type: SORT_DATA_BY_NAME,
+        payload: ''
+    }
+
 }

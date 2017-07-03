@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 //import each reducer here and set some state property in the rootReducer to equal the imported function
-import fetchDataReducer from './fetch-data';
+import campersReducer from './reducer_campers';
 
 const rootReducer = combineReducers({
-  campers: fetchDataReducer
+  campers: campersReducer
 });
 
 export default rootReducer;
