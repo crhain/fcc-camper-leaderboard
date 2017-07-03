@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchData } from '../actions/index';
+import './styles/camper-list.css';
 
 class CamperList extends Component{
     componentWillMount(){
@@ -12,7 +13,7 @@ class CamperList extends Component{
             return (
                 <tr key={index}>
                     <td>{index + 1}</td> 
-                    <td><img className="profile-pic" src={camper.img} /> { camper.username }</td>
+                    <td><img className="profile-pic img-circle" src={camper.img} alt="profile picture"/> { camper.username }</td>
                     <td>{ camper.recent }</td>
                     <td>{ camper.alltime }</td>
                 </tr>
