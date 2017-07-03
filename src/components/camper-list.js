@@ -23,7 +23,7 @@ class CamperList extends Component{
     }
     
     sortDataByName(){
-        this.props.sortDataByName(this.getSortedOrder('name'));
+        this.props.sortDataByName(this.getSortedOrder('name', true));
     }
 
     sortDataByRecentPoints(){
@@ -34,12 +34,16 @@ class CamperList extends Component{
         this.props.sortDataByPoints(this.getSortedOrder('points'));        
     }
 
-    getSortedOrder(field){
-        let newOrder = 'asc';
+    getSortedOrder(field, reverseDefaultOrder = false){
+        let newOrder;
         if(this.props.sorted.by === field){
-            if(this.props.sorted.order === 'asc'){
+            if(this.props.sorted.order === 'dsc'){
+                newOrder = 'asc';
+            } else {
                 newOrder = 'dsc';
-            } 
+            }
+        } else {
+            newOrder = reverseDefaultOrder ? 'asc' : 'dsc';
         }        
         return newOrder;
     }
@@ -50,22 +54,23 @@ class CamperList extends Component{
         let pointsSortClass = '';
 
         if(this.props.sorted.by === 'name'){
-            if(this.props.sorted.order === 'asc'){
-                nameSortClass = 'glyphicon glyphicon-triangle-top';
+            if(this.props.sorted.order === 'dsc'){
+                nameSortClass = 'glyphicon glyphicon-triangle-bottom';                
             } else {
-                nameSortClass = 'glyphicon glyphicon-triangle-bottom';
+                nameSortClass = 'glyphicon glyphicon-triangle-top';
             }                       
         } else if(this.props.sorted.by === 'recent'){
-            if(this.props.sorted.order === 'asc'){
-                recentSortClass = 'glyphicon glyphicon-triangle-top';
+            if(this.props.sorted.order === 'dsc'){
+                recentSortClass = 'glyphicon glyphicon-triangle-bottom';                
             } else {
-                recentSortClass = 'glyphicon glyphicon-triangle-bottom';
+                recentSortClass = 'glyphicon glyphicon-triangle-top';
             }
         } else if(this.props.sorted.by === 'points'){
-            if(this.props.sorted.order === 'asc'){
-                pointsSortClass = 'glyphicon glyphicon-triangle-top';
-            } else {
+            if(this.props.sorted.order === 'dsc'){
                 pointsSortClass = 'glyphicon glyphicon-triangle-bottom';
+                
+            } else {
+                pointsSortClass = 'glyphicon glyphicon-triangle-top';
             }
         }   
 

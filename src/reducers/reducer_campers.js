@@ -5,14 +5,14 @@ export default function(state = [], action){
         case FETCH_DATA:
             return [...state, ...action.payload.data];
         case SORT_DATA_BY_RECENT_POINTS:
-            if(action.payload === 'asc'){
+            if(action.payload === 'dsc'){
                 return [...state.sort((first, second) => second.recent - first.recent)];
             } else {
                 return [...state.sort((first, second) => first.recent - second.recent)];
             }            
             
         case SORT_DATA_BY_POINTS:
-            if(action.payload === 'asc'){
+            if(action.payload === 'dsc'){
                 return [...state.sort((first, second) => second.alltime- first.alltime)];
             } else {
                 return [...state.sort((first, second) => first.alltime- second.alltime)];

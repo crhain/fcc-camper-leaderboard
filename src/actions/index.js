@@ -11,14 +11,14 @@ export function fetchData(){
             };  
 }
 
-export function sortDataByRecentPoints(order = 'asc'){
+export function sortDataByRecentPoints(order = 'dsc'){
     return {
         type: SORT_DATA_BY_RECENT_POINTS,
         payload: order
     }
 }
 
-export function sortDataByPoints(order = 'asc'){
+export function sortDataByPoints(order = 'dsc'){
     return {
         type: SORT_DATA_BY_POINTS,
         payload: order
