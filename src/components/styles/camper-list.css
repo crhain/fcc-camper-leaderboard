@@ -6,3 +6,7 @@
 .sort-btn{
     cursor: pointer;
 }
+
+.sorted{
+    color: green;
+}

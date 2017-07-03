@@ -5,20 +5,42 @@ export default function(state = [], action){
         case FETCH_DATA:
             return [...state, ...action.payload.data];
         case SORT_DATA_BY_RECENT_POINTS:
-            //console.log(state);            
-            return [...state.sort((first, second) => second.recent - first.recent)];
-        case SORT_DATA_BY_POINTS:        
-            return [...state.sort((first, second) => second.alltime- first.alltime)];
+            if(action.payload === 'asc'){
+                return [...state.sort((first, second) => second.recent - first.recent)];
+            } else {
+                return [...state.sort((first, second) => first.recent - second.recent)];
+            }            
+            
+        case SORT_DATA_BY_POINTS:
+            if(action.payload === 'asc'){
+                return [...state.sort((first, second) => second.alltime- first.alltime)];
+            } else {
+                return [...state.sort((first, second) => first.alltime- second.alltime)];
+            }       
+            
         case SORT_DATA_BY_NAME:
-            return [...state.sort((first, second) => { 
-                if(first.username > second.username){
-                    return 1;
-                } else if(first.username < second.username) {
-                    return -1;
-                } else {
-                    return 0;
-                }                
-            })];        
+            if(action.payload === 'asc'){
+                return [...state.sort((first, second) => { 
+                    if(first.username > second.username){
+                        return 1;
+                    } else if(first.username < second.username) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }                
+                })];        
+            } else {
+                return [...state.sort((first, second) => { 
+                    if(first.username > second.username){
+                        return -1;
+                    } else if(first.username < second.username) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }                
+                })];        
+            }
+            
         default: 
             return state;
     }

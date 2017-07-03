@@ -21,8 +21,54 @@ class CamperList extends Component{
         });
 
     }
+    
+    sortDataByName(){
+        this.props.sortDataByName(this.getSortedOrder('name'));
+    }
 
-    render(){        
+    sortDataByRecentPoints(){
+        this.props.sortDataByRecentPoints(this.getSortedOrder('recent'));        
+    }
+
+    sortDataByPoints(){        
+        this.props.sortDataByPoints(this.getSortedOrder('points'));        
+    }
+
+    getSortedOrder(field){
+        let newOrder = 'asc';
+        if(this.props.sorted.by === field){
+            if(this.props.sorted.order === 'asc'){
+                newOrder = 'dsc';
+            } 
+        }        
+        return newOrder;
+    }
+
+    render(){
+        let nameSortClass = '';
+        let recentSortClass = '';
+        let pointsSortClass = '';
+
+        if(this.props.sorted.by === 'name'){
+            if(this.props.sorted.order === 'asc'){
+                nameSortClass = 'glyphicon glyphicon-triangle-top';
+            } else {
+                nameSortClass = 'glyphicon glyphicon-triangle-bottom';
+            }                       
+        } else if(this.props.sorted.by === 'recent'){
+            if(this.props.sorted.order === 'asc'){
+                recentSortClass = 'glyphicon glyphicon-triangle-top';
+            } else {
+                recentSortClass = 'glyphicon glyphicon-triangle-bottom';
+            }
+        } else if(this.props.sorted.by === 'points'){
+            if(this.props.sorted.order === 'asc'){
+                pointsSortClass = 'glyphicon glyphicon-triangle-top';
+            } else {
+                pointsSortClass = 'glyphicon glyphicon-triangle-bottom';
+            }
+        }   
+
         return (
             <div>
                 <h3>Leaderboard</h3>
@@ -30,9 +76,9 @@ class CamperList extends Component{
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Camper Name <a className="sort-btn" onClick={this.props.sortDataByName}>x</a></th>
-                            <th>Points in Past 30 Days <a className="sort-btn" onClick={this.props.sortDataByRecentPoints}>x</a></th>
-                            <th>All Time Points <a className="sort-btn" onClick={this.props.sortDataByPoints}>x</a></th>
+                            <th><a id="name-sort-btn" className="sort-btn" onClick={this.sortDataByName.bind(this)}>Camper Name <i className={nameSortClass}></i></a></th>
+                            <th><a id="recent-sort-btn" className="sort-btn" onClick={this.sortDataByRecentPoints.bind(this)}>Points in Past 30 Days <i className={recentSortClass}></i></a></th>
+                            <th><a id="points-sort-btn" className="sort-btn" onClick={this.sortDataByPoints.bind(this)}>All Time Points <i className={pointsSortClass}></i></a></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,8 +92,8 @@ class CamperList extends Component{
 }
 
 
-function mapStateToProps({ campers }){
-    return { campers };    
+function mapStateToProps({ campers, sorted }){
+    return { campers, sorted };    
 }
 
 function mapDispatchToProps(dispatch){
