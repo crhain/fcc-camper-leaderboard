@@ -3,6 +3,7 @@ import { FETCH_DATA, SORT_DATA_BY_RECENT_POINTS, SORT_DATA_BY_POINTS, SORT_DATA_
 export default function(state = [], action){
     switch(action.type){
         case FETCH_DATA:
+            //add action.payload.data to localstorage
             return [...state, ...action.payload.data];
         case SORT_DATA_BY_RECENT_POINTS:
             if(action.payload === 'dsc'){

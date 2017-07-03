@@ -12,10 +12,10 @@ class CamperList extends Component{
         return this.props.campers.map((camper, index)=>{
             return (
                 <tr key={index}>
-                    <td>{index + 1}</td> 
+                    <td><div className="table-align">{index + 1}</div></td> 
                     <td><img className="profile-pic img-circle" src={camper.img} alt={camper.username}/> { camper.username }</td>
-                    <td>{ camper.recent }</td>
-                    <td>{ camper.alltime }</td>
+                    <td><div className="table-align">{ camper.recent }</div></td>
+                    <td><div className="table-align">{ camper.alltime }</div></td>
                 </tr>
             );
         });
