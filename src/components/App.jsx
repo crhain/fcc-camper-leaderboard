@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './styles/App.css';
-import CamperList from './camper-list';
+import CamperList from './CamperList';
 
 class App extends Component {
   render() {
