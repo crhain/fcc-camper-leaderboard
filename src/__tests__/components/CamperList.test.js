@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-dom/test-utils';
 import { connect } from 'react-redux';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { shallowWithStore } from 'enzyme-redux';
 import { createMockStore } from 'redux-test-utils';
 import { createStore, applyMiddleware } from 'redux';

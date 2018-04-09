@@ -1,3 +1,9 @@
+CAMPER LEADERBOARD
+==========================================
+
+This project was built for freeCodeCamp.  A working version can be found at [crhwebdev.github.io/fcc-camper-leaderboard](https://crhwebdev.github.io/fcc-camper-leaderboard)
+
+
 OBJECTIVE
 ==========================================
 Build a CodePen.io app that is functionally similar to this: https://codepen.io/FreeCodeCamp/full/eZGMjp/.
