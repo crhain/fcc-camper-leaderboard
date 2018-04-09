@@ -2,6 +2,7 @@
   "name": "fcc-camper-leaderboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://crhwebdev.github.io/fcc-camper-leaderboard/",
   "dependencies": {
     "axios": "^0.16.2",
     "gh-pages": "^1.0.0",
@@ -24,6 +25,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "npm run build&&gh-pages -d build"
-  },
-  "homepage": "http://crhain.github.io/fcc-camper-leaderboard/"
+  }  
 }
